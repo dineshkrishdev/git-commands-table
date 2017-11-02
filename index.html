@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Git Tips & Commands - For Git Users</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="icon" href="img/icon.png" />
+	</head>
+	
+	<body ng-app="git-tips">
+	
+		<header>
+			<nav>
+				<div class="nav-wrapper">
+					<a href="index.html" class="brand-logo" style="margin-left:10px;">{ Git Tips }</a>
+					<ul id="nav-mobile" class="right hide-on-med-and-down">
+						<li><a target="_blank" href="https://github.com/dineshkrishdev/git-tips">View Github</a></li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		
+		<main>
+			<div ng-controller="getTips">
+				<div class="row">
+					<div class="container" style="width:80%;">
+						<div class="responsive-table table-status-sheet">
+							<div class="input-field col s6 s12 red-text">
+								<i class="small material-icons">search</i>
+								<input type="text" placeholder="Type your text" ng-model="searchKeyword" />
+							</div>
+							<h5>Git Commands</h5>
+							<table class="bordered striped" id="gitTipsTable">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>Title</th>
+										<th>Tips</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="command in commands | filter: searchKeyword">
+										<td>{{$index + 1}}</td>
+										<td>{{command.title}}</td>
+										<td>{{command.tip}}</td>
+									</tr>
+									<tr ng-show="(commands | filter:searchKeyword).length == 0">
+										<td colspan="3">No Result`s Found!!!</td>
+									</tr>
+								</tbody>
+							</table>
+							<br/><br/><br/>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</main>
+		
+		<footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Git Tips</h5>
+                <p class="grey-text text-lighten-4">
+					All possible git commands for git users.	
+				</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Dinesh Krishnan</h5>
+                <ul>
+                  <li><i class="tiny material-icons">web</i> <a class="grey-text text-lighten-3" target="_blank" href="http://dineshkrishnan.co.in">Website</a></li>
+                  <li><i class="tiny material-icons">content_paste</i> <a class="grey-text text-lighten-3" target="_blank" href="http://www.dineshkrish.com/">Blog</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+				© 2017 Copyright Text
+            </div>
+          </div>
+        </footer>
+	
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+		<script type="text/javascript" src="https://cdn.rawgit.com/pinzon1992/materialize_table_pagination/f9a8478f/js/pagination.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
+		
+	</body>
+<html>
