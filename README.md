@@ -1,2 +1,2 @@
 # git-tips
-Git Commands Table for GIT users
+Git Commands and Tips for all Git Users.
